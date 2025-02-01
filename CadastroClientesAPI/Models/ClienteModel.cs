@@ -7,7 +7,12 @@ namespace CadastroClientesAPI.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Nome { get; set; }
-        public string Email { get; set; }
+       [Required(ErrorMessage = "O nome é obrigatório.")]
+        [StringLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres.")]
+        public required string Nome { get; set; }
+
+        [Required(ErrorMessage = "O e-mail é obrigatório.")]
+        [EmailAddress(ErrorMessage = "O e-mail informado não é válido.")]
+        public required string Email { get; set; }
     }
 }
