@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using CadastroClientesAPI.Models;
+using CadastroClientesAPI.Services;
 
 namespace CadastroClientesAPI
 {
@@ -17,6 +18,7 @@ namespace CadastroClientesAPI
             services.AddControllers();
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<ClienteService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
