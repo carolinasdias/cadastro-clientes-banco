@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ClienteListComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,
