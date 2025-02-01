@@ -1,0 +1,12 @@
+<p-toast></p-toast>
+<form [formGroup]="clienteForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="nome">Nome</label>
+    <input id="nome" formControlName="nome" />
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input id="email" formControlName="email" />
+  </div>
+  <button type="submit" pButton label="Salvar" [disabled]="clienteForm.invalid"></button>
+</form>
