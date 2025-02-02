@@ -1,0 +1,15 @@
+de Trabalho/projeto-pan/cadastro-clientes-banco/frontend/cadastro-clientes-frontend/src/app/components/cliente-list/cliente-list.component.css */
+
+p-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+p-table th {
+  background-color: #007ad9;
+  color: white;
+}
+
+p-table td {
+  text-align: center;
+}

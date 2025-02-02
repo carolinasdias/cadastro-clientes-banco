@@ -7,7 +7,7 @@ import { Cliente } from '../models/cliente.model';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = 'http://localhost:5000/api/clientes'; // Altere para a URL do seu backend
+  private apiUrl = 'https://localhost:5001/api/clientes'; // URL do backend
 
   constructor(private http: HttpClient) { }
 

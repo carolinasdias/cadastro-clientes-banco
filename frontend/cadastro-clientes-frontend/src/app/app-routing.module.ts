@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClienteListComponent } from './components/cliente-list/cliente-list.component';
+import { ClienteFormComponent } from './components/cliente-form/cliente-form.component';
 
 const routes: Routes = [
-  {
-    path: 'clientes',
-    loadChildren: () => import('./components/cliente-list/cliente-list.module').then(m => m.ClienteListModule)
-  },
-  {
-    path: 'clientes/new',
-    loadChildren: () => import('./components/cliente-form/cliente-form.module').then(m => m.ClienteFormModule)
-  },
-  {
-    path: 'clientes/edit/:id',
-    loadChildren: () => import('./components/cliente-form/cliente-form.module').then(m => m.ClienteFormModule)
-  },
+  { path: 'clientes', component: ClienteListComponent },
+  { path: 'clientes/edit/:id', component: ClienteFormComponent },
+  { path: 'clientes/new', component: ClienteFormComponent },
   { path: '', redirectTo: '/clientes', pathMatch: 'full' }
 ];
 

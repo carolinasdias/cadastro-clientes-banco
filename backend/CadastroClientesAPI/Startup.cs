@@ -19,6 +19,18 @@ namespace CadastroClientesAPI
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ClienteService>();
+
+            // Adicionar configuração de CORS
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,6 +49,9 @@ namespace CadastroClientesAPI
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            // Adicionar uso de CORS antes do roteamento
+            app.UseCors("AllowAllOrigins");
 
             app.UseAuthorization();
 

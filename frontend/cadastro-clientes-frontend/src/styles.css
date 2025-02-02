@@ -1,4 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Estilos para o cabeçalho */
+header {
+    background-color: #007ad9;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Estilos para o menu */
+  nav {
+    background-color: #005bb5;
+    padding: 10px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Estilos para o rodapé */
+  footer {
+    background-color: #007ad9;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
