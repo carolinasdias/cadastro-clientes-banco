@@ -1,39 +1,61 @@
 /* Estilos para o cabeçalho */
 header {
-    background-color: #007ad9;
-    color: white;
-    padding: 10px;
-    text-align: center;
+  background-color: #007ad9;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+
+/* Estilos para o menu do PrimeNG */
+.p-menubar {
+  background-color: #f0f0f0 !important; /* Cor de fundo cinza claro */
+  border: none !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  justify-content: center !important; /* Centralizar as opções */
+}
+
+.p-menubar .p-menubar-root-list {
+  display: flex !important;
+  justify-content: center !important; /* Centralizar as opções */
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+  color: #333 !important; /* Cor do texto cinza escuro */
+  padding: 10px 20px !important;
+  font-size: 1.5rem !important; /* Aumentar o tamanho da fonte */
+  transition: background-color 0.3s !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:hover {
+  background-color: #e0e0e0 !important; /* Cor de fundo ao passar o mouse */
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .pi {
+  margin-right: 0.5rem !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem {
+  margin: 0 5px !important;
+}
+
+@media (max-width: 768px) {
+  .p-menubar .p-menubar-root-list {
+    flex-direction: column !important;
   }
-  
-  /* Estilos para o menu */
-  nav {
-    background-color: #005bb5;
-    padding: 10px;
+
+  .p-menubar .p-menubar-root-list > .p-menuitem {
+    margin: 5px 0 !important;
   }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 10px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  /* Estilos para o rodapé */
-  footer {
-    background-color: #007ad9;
-    color: white;
-    padding: 10px;
-    text-align: center;
+  p-toast {
     position: fixed;
-    width: 100%;
-    bottom: 0;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
   }
+}
+
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/saga-blue/theme.css';
+@import '~primeng/resources/primeng.min.css';

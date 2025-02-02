@@ -1,0 +1,42 @@
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .p-menubar {
+    background-color: #007ad9;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:hover {
+    background-color: #005bb5;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .pi {
+    margin-right: 0.5rem;
+  }
+  
+  .p-menubar .p-menubar-root-list > .p-menuitem {
+    margin: 0 5px;
+  }
+  
+  @media (max-width: 768px) {
+    .p-menubar .p-menubar-root-list {
+      flex-direction: column;
+    }
+  
+    .p-menubar .p-menubar-root-list > .p-menuitem {
+      margin: 5px 0;
+    }
+  }
+  @import '~primeicons/primeicons.css';

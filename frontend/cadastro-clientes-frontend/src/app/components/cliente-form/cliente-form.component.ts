@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ClienteService } from '../../services/cliente.service';
-import { Cliente } from '../../models/cliente.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClienteService } from '../../services/cliente.service';
 import { MessageService } from 'primeng/api';
+import { Cliente } from '../../models/cliente.model';
 
 @Component({
   selector: 'app-cliente-form',
@@ -18,14 +18,11 @@ export class ClienteFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private clienteService: ClienteService,
-    private route: ActivatedRoute,
     private router: Router,
+    private route: ActivatedRoute,
     private messageService: MessageService
   ) {
-    this.clienteForm = this.fb.group({
-      nome: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]]
-    });
+    this.clienteForm = this.createForm();
   }
 
   ngOnInit(): void {
@@ -34,29 +31,46 @@ export class ClienteFormComponent implements OnInit {
       if (id) {
         this.clienteId = +id;
         this.clienteService.getCliente(this.clienteId).subscribe(cliente => {
-          this.clienteForm.patchValue(cliente);
+          if (cliente) {
+            this.clienteForm.patchValue(cliente);
+          } else {
+            // Caso não encontre o cliente, redireciona ou exibe erro
+            this.router.navigate(['/clientes']);
+          }
         });
       }
     });
   }
 
+  private createForm(): FormGroup {
+    return this.fb.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]]
+    });
+  }
+
   onSubmit(): void {
     if (this.clienteForm.valid) {
-      const cliente: Cliente = this.clienteForm.value;
       if (this.clienteId !== null) {
-        this.clienteService.updateCliente(this.clienteId, cliente).subscribe(() => {
-          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Cliente atualizado com sucesso' });
-          this.router.navigate(['/clientes']);
-        }, error => {
-          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao atualizar cliente' });
-        });
+        this.clienteService.updateCliente(this.clienteId, this.clienteForm.value).subscribe(
+          () => {
+            this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Cliente atualizado com sucesso' });
+            this.router.navigate(['/clientes']);
+          },
+          (error) => {
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao atualizar cliente' });
+          }
+        );
       } else {
-        this.clienteService.createCliente(cliente).subscribe(() => {
-          this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Cliente criado com sucesso' });
-          this.router.navigate(['/clientes']);
-        }, error => {
-          this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao criar cliente' });
-        });
+        this.clienteService.createCliente(this.clienteForm.value).subscribe(
+          () => {
+            this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Cliente salvo com sucesso' });
+            this.router.navigate(['/clientes']);
+          },
+          (error) => {
+            this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao salvar cliente' });
+          }
+        );
       }
     }
   }

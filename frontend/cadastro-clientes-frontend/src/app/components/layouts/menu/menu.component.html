@@ -1,0 +1,9 @@
+<div class="card" style="margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; overflow: hidden;">
+  <p-menubar [model]="items" style="background-color: #007ad9; border: none; border-radius: 8px;">
+    <ng-template let-item pTemplate="item">
+      <a [routerLink]="item.routerLink" style="color: white; padding: 10px 20px; font-size: 1.5rem; transition: background-color 0.3s;">
+        <i [class]="item.icon" style="margin-right: 0.5rem;"></i>{{ item.label }}
+      </a>
+    </ng-template>
+  </p-menubar>
+</div>
