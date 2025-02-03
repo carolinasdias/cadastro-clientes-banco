@@ -1,9 +1,11 @@
 cadastro-clientes-banco
-Este projeto é uma API para o cadastro de clientes de um banco. Ele permite criar, ler, atualizar e deletar informações de clientes.
+Este projeto é uma API para o cadastro de clientes de um banco. 
+Ele permite criar, ler, atualizar e deletar informações de clientes.
 
 Tecnologias Utilizadas
 
 Backend
+
 .NET 8.0
 Entity Framework Core
 SQLite
